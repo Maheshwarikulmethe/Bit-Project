@@ -1,0 +1,53 @@
+<div class="containter-fluid">
+    <nav class="navbar">
+        <div class="container-fluid d-flex justify-content-center" style="background-color: black; color: white;">
+            <h3 style="padding: 10px">
+                Bet Builder Fixture
+            </h3>
+        </div>
+    </nav>
+</div>
+
+<!-- Button Start -->
+<div class="container-fluid d-flex justify-content-center">
+    <div>
+       
+        <button type="button" (click)="getMatchData(date)" class="btn btn-light"  style="margin: 10px; border-radius: 20px; background-color: #ED3535; color: white;">{{ date | date:'EE d, MMM'}}</button>
+        <button type="button" (click)="getMatchData(nextDate)" class="btn btn-light"  style="margin: 10px; border-radius: 20px; background-color: #ED3535; color: white;">{{ nextDate | date:'EE d, MMM'}}</button>
+        <button type="button" (click)="getMatchData(nextDate1)" class="btn btn-light"  style="margin: 10px; border-radius: 20px; background-color: #ED3535; color: white;">{{ nextDate1 | date:'EE d, MMM'}}</button>
+        <button type="button" (click)="getMatchData(nextDate2)" class="btn btn-light"  style="margin: 10px; border-radius: 20px; background-color: #ED3535; color: white;">{{ nextDate2 | date:'EE d, MMM'}}</button>
+        <button type="button" (click)="getMatchData(nextDate3)" class="btn btn-light"  style="margin: 10px; border-radius: 20px; background-color: #ED3535; color: white;">{{ nextDate3 | date:'EE d, MMM'}}</button>
+        <button type="button" (click)="getMatchData(nextDate4)" class="btn btn-light"  style="margin: 10px; border-radius: 20px; background-color: #ED3535; color: white;">{{ nextDate4| date:'EE d, MMM'}}</button>
+        <button type="button" (click)="getMatchData(nextDate5)" class="btn btn-light"  style="margin: 10px; border-radius: 20px; background-color: #ED3535; color: white;">{{ nextDate5| date:'EE d, MMM'}}</button>
+
+<!-- Display Team -->
+        <div class="container-fluid d-flex justify-content-center">
+            <form style="width: 80%;">
+                <div class="card" style="border-style: none;">
+                    <div class="card-body text-center">
+                        <table class="table" style="margin: 10px; border-radius: 20px; background-color: #ED3535;">
+                            <thead style="color: whitesmoke">
+                                <tr>
+                                    <th scope="col">Country</th>
+                                    <th scope="col">LeagueName</th>
+                                    <th scope="col">MatchName</th>
+                                    <th scope="col">KickOffUtc</th>
+                                </tr>
+                            </thead>
+                            <tbody style="background-color: whitesmoke">
+                                <tr *ngFor="let item of filtered">
+                                    <th>{{item.Country}}</th>
+                                    <th>{{item.LeagueName}}</th>
+                                    <th><a (click)="saveSelectedMatchName(item.MatchName)"
+                                            routerLink="/second">{{item.MatchName}}</a></th>
+                                    <th>{{item.KickOffUtc}}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        

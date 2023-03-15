@@ -1,0 +1,99 @@
+<div class="containter-fluid">
+    <nav class="navbar">
+        <div class="container-fluid d-flex justify-content-center" style="background-color: black; color: white;">
+            <h3 style="padding: 10px">
+                Bet Builder Fixture
+            </h3>
+        </div>
+    </nav>
+</div>
+
+<div class="containter-fluid">
+    <nav class="navbar">
+        <div class="container-fluid d-flex justify-content-start" style="background-color: #ED3535; color: white;">
+            <h3 style="padding: 10px">
+              Make It A Bet Builder ?
+            </h3>
+        </div>
+    </nav>
+</div>
+
+<!-- Team Display -->
+<div class="container-fluid d-flex justify-content-center">
+    <form style="width: 80%;">
+        <div class="card" style="border-style: none;">
+            <div class="card-body text-center">
+                <button (click)="filterTeamData(day)" class="btn btn-danger" type="button">Display Teams</button>
+
+                <table class="table" style="margin: 10px; border-radius: 20px; background-color: #ED3535;">
+                    <thead>
+                        <tr style="color: whitesmoke">
+                            <th scope="col">Team1Name</th>
+                            <th scope="col">Team2Name</th>
+                            <th scope="col">KickOffUtc</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let item of teamDataDisplay" style="background-color: whitesmoke">
+
+                        <th>{{item.Team1Name}}</th>
+                        <th>{{item.Team2Name}}</th>
+                        <th>{{item.KickOffUtc}}</th>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- Market and Leg Display -->
+
+
+
+<div class="container-fluid d-flex justify-content-center">
+    
+
+     <label for="name" style="color: black;"><b>Selection:</b></label>
+        <select  [(ngModel)]="selectedMarketName">
+            <option *ngFor="let item of marketData " > 
+                      {{ item.MarketName }}
+             </option >
+        </select>
+                
+        <label for="name" style="color: black;"><b>Leg:</b></label>
+             <select class="ml-3"  [(ngModel)]="selectedValue">
+                 <option *ngFor="let item of legData" >
+                  {{ item.selectionValue }}
+                 </option>
+            </select>
+           
+</div>
+
+
+<div class="container-fluid d-flex justify-content-center">
+    <button type="button" (click)="filterMarketData()" class="btn btn-light"  style="margin: 30px; border-radius: 20px; background-color: #ED3535; color: white;">Display Outcome</button>
+</div>
+<div class="container-fluid d-flex justify-content-center">
+    <div class="mt-5 ml-3" *ngIf="isSelected">
+        <table class="table" style="margin: 5px; border-radius: 20px; background-color: #ED3535;">
+            <thead style="color: whitesmoke">
+                <tr>
+                    <th scope="col">Market</th>
+                    <th scope="col">Outcome</th>
+                </tr>
+               
+            <tbody style="background-color: whitesmoke">
+                <tr>
+                    <th>{{this.marketDataDisplay.MasterMarketName }}</th>
+                    <th>{{this.marketDataDisplay.MarketName}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+       
+    
